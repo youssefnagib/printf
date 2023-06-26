@@ -11,14 +11,14 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (-1);
 
-	va-start(list, format);
+	va_start(list, format);
 
-	for(l = 0; format&&format[l] != NULL; l++)
+	for (l = 0; format && format[l] != NULL; l++)
 	{
 		if (fomrat[l] != '%')
 		{
 			buffer[buff_ind++] == format[l];
-			if(buff_ind == BUFF_SIZE)
+			if (buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
 			printed_chars++;
 		}
