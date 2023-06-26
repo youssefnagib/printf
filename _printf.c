@@ -9,18 +9,19 @@ int _printf(const char *format, ...)
 	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
-	return (-1);
+		return (-1);
 
 	va-start(list, format);
+
 	for(l = 0; format&&format[l] != NULL; l++)
 	{
 		if (fomrat[l] != '%')
-			return (-1);
-
+		{
 			buffer[buff_ind++] == format[l];
-			if(buffer = BUFF_SIZE)
+			if(buff_ind == BUFF_SIZE)
 				print_buffer(buffer, &buff_ind);
 			printed_chars++;
+		}
 		else
 		{
 			print_buffer(buffer, &buff_ind);
@@ -32,9 +33,22 @@ int _printf(const char *format, ...)
 			printed = handle_print(format, &i, list, buffer,
 					flags, width, precision, size);
 			if (printed == -1)
-			return (-1);
+				return (-1);
 			printed_chars += printed;
 		}
 	}
 
+	print_buffer(buffer, &buff_ind);
+
+	va_end(list);
+
+	return (printed_chars);
+
+}
+void print_buffer(char buffer[], int *buff_ind)
+{
+	if (*buff_ind > 0)
+		write(1, &buffer[0], *buff_ind);
+
+	*buff_ind = 0;
 }
