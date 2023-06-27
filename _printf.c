@@ -1,6 +1,13 @@
 #include "main.h"
 void print_buffer(char buffer[], int *buff_ind);
 
+
+/**
+ * _printf - print function
+ * @format: format.
+ * Return: printed chars
+ */
+
 int _printf(const char *format, ...)
 {
 	int i, printed = 0, printed_chars = 0;
@@ -45,6 +52,13 @@ int _printf(const char *format, ...)
 	return (printed_chars);
 
 }
+
+/**
+ * print_buffer - print contents of hte buffer
+ * @buffer: Array of chars
+ * @buff_ind: index at wich to add next char
+ */
+
 void print_buffer(char buffer[], int *buff_ind)
 {
 	if (*buff_ind > 0)
