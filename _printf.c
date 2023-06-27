@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 
 	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (fomrat[i] != '%')
+		if (format[i] != '%')
 		{
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)

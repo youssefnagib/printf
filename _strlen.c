@@ -1,4 +1,4 @@
-#include <stdlib>
+#include <stdlib.h>
 
 /**
  * _strlen - length of string
@@ -8,7 +8,7 @@
 
 int _strlen(char *s)
 {
-	int 1;
+	int i;
 
 	for (i = 0; s[i] != '\0'; i++)
 		;
