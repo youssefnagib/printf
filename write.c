@@ -72,7 +72,6 @@ int write_num(int ind, char buffer[],
 		for (i = 1; i < width - length + 1; i++)
 			buffer[i] = padd;
 		buffer[i] = '\0';
-
 		if (flags & F_MINUS && padd == ' ')
 		{
 			if (extra_c)
@@ -92,7 +91,7 @@ int write_num(int ind, char buffer[],
 			return (write(1, &buffer[padd_start], i - padd_start) +
 					write(1, &buffer[ind], length - (1 - padd_start)));
 		}
-																		}
+	}
 	if (extra_c)
 		buffer[--ind] = extra_c;
 	return (write(1, &buffer[ind], length));
